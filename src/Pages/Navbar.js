@@ -4,23 +4,17 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 
 function Navbarr() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Home</Navbar.Brand>
+        <Link to="/">Home</Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Link href="#products">Products</Nav.Link>
-            <Nav.Link href="#about">About Us</Nav.Link>
-          </Nav>
-          <Nav.Link href="#contact">Contact Us</Nav.Link>
+          <Link to="/about">About US</Link>
+          <Link to="/contact">Contact US</Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

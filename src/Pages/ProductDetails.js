@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useNavigate, useParams } from "react-router-dom";
+import { ContextApi } from "./Products";
 const ProductDetails = ({ items }) => {
-  const { title, image, description, price, category, rating } = items;
+  const { title, image, description, price, category, rating, id } = items;
   const vag = items.description;
   const aslo = vag.slice(0, 150);
-
+  const connect = useContext(ContextApi);
+  const { ide } = useParams();
+  const navigate = useNavigate();
+  const handelClick = (ide) => {
+    navigate(`/product/${ide}`);
+  };
   return (
     <div>
       <Card style={{ width: "18rem", height: "105vh" }}>
@@ -24,7 +31,13 @@ const ProductDetails = ({ items }) => {
           <Card.Text>
             <b>Description:</b> {aslo}
           </Card.Text>
-          <Button variant="primary">See Details</Button>
+          <Button
+            onClick={() => handelClick(id)}
+            style={{ position: "absolute", bottom: "0" }}
+            variant="primary"
+          >
+            See Details
+          </Button>
         </Card.Body>
       </Card>
     </div>
